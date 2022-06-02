@@ -44,6 +44,39 @@ def main():
     o = Text('3ETI', np.array([-0.5, -0.2], np.float32), np.array([0.5, 0.3], np.float32), vao, 2, programGUI_id, texture)
     viewer.add_object(o)
 
+#création des moutons
+    m = Mesh.load_obj('mouton.obj')
+    vao = m.load_to_gpu()
+    m.normalize()
+    m.apply_matrix(pyrr.matrix44.create_from_scale([0.2, 0.2, 0.2, 1]))
+    tr = Transformation3D()
+    tr.translation.y = -np.amin(m.vertices, axis=0)[1]
+    tr.translation.z = 0
+    tr.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
+    tr.rotation_center.z = 0.2
+    texture = glutils.load_texture('stegosaurus.jpg')
+    o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, tr)
+    viewer.add_object(o)
+
+#ajout des autres moutons
+    t2 = Transformation3D()
+    t2.translation.y = -np.amin(m.vertices, axis=0)[1]
+    t2.translation.z = 0
+    t2.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
+    t2.translation.z = 10
+    o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, t2)
+    viewer.add_object(o)
+
+    t3 = Transformation3D()
+    t3.translation.y = -np.amin(m.vertices, axis=0)[1]
+    t3.translation.z = 0
+    t3.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
+    t3.translation.z = -10
+    o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, t3)
+    viewer.add_object(o)
+
+   
+
     viewer.run()
 
 
