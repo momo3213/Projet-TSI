@@ -61,7 +61,7 @@ def main():
 #ajout des autres moutons
     t2 = Transformation3D()
     t2.translation.y = -np.amin(m.vertices, axis=0)[1]
-    t2.translation.z = 0
+    t2.translation.z = 3
     t2.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
     t2.translation.z = 10
     o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, t2)
@@ -69,7 +69,7 @@ def main():
 
     t3 = Transformation3D()
     t3.translation.y = -np.amin(m.vertices, axis=0)[1]
-    t3.translation.z = 0
+    t3.translation.z = -5
     t3.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
     t3.translation.z = -10
     o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, t3)

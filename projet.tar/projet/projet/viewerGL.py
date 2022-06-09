@@ -5,6 +5,7 @@ import glfw
 import pyrr
 import numpy as np
 from cpe3d import Object3D
+ 
 
 class ViewerGL:
     def __init__(self):
@@ -122,6 +123,9 @@ class ViewerGL:
             self.cam.transformation.translation = self.objs[0].transformation.translation + pyrr.Vector3([0, 1, 5])
     
     def collision(self):
-        float distX = self.position.x - mouton.position.x
-        float distY = self.position.y - mouton.position.y
-        float distZ = self.position.z - mouton.position.z
+        dist=1
+        for i in range(1,3):
+            dist=self.objs[0].transformation.translation - self.objs[i].transformation.translation
+            if np.linalg.norm(dist)<=1:
+                GL.releaseGLResource(self.objs[i])
+
