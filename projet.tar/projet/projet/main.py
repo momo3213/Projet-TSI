@@ -5,6 +5,7 @@ from cpe3d import Object3D, Camera, Transformation3D, Text
 import numpy as np
 import OpenGL.GL as GL
 import pyrr
+import random 
 
 def main():
     viewer = ViewerGL()
@@ -51,6 +52,7 @@ def main():
     tr = Transformation3D()
     tr.translation.y = -np.amin(m.vertices, axis=0)[1]
     tr.translation.z = 0
+    tr.translation.x = 6
     tr.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
     tr.rotation_center.z = 0.2
     texture = glutils.load_texture('fourrure mouton.jpg')
@@ -74,7 +76,24 @@ def main():
     o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, t3)
     viewer.add_object(o)
 
-   
+    t4 = Transformation3D()
+    t4.translation.y = -np.amin(m.vertices, axis=0)[1]
+    t4.translation.z = 0
+    t4.translation.x = -6
+    t4.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
+    t4.translation.z = -10
+    o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, t4)
+    viewer.add_object(o)
+    
+    for i in range(5,15):
+        ti = Transformation3D()
+        ti.translation.y = -np.amin(m.vertices, axis=0)[1]
+        ti.translation.z = random.random()*20-10
+        ti.translation.x = random.random()*20-10
+        ti.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
+        o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, ti)
+        viewer.add_object(o)
+
 
     viewer.run()
 
