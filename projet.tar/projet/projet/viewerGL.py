@@ -32,6 +32,7 @@ class ViewerGL:
 
         self.objs = []
         self.touch = {}
+        self.compteur=0
 
     def run(self):
         # boucle d'affichage
@@ -41,6 +42,8 @@ class ViewerGL:
 
             self.update_key()
             self.collision()
+            
+            self.objs[3].value=' score: ' + str(self.compteur)
 
             for obj in self.objs:
                 GL.glUseProgram(obj.program)
@@ -124,9 +127,8 @@ class ViewerGL:
             self.cam.transformation.translation = self.objs[0].transformation.translation + pyrr.Vector3([0, 1, 5])
     
     def collision(self):
-        compteur=0
-        for i in range(3,16):
+        for i in range(4,17):
             dist=self.objs[0].transformation.translation - self.objs[i].transformation.translation
             if np.linalg.norm(dist)<=2 and self.objs[i].visible== True :
                 self.objs[i].visible= False
-                compteur=compteur+1
+                self.compteur += 1
