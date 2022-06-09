@@ -54,7 +54,7 @@ def main():
     tr.translation.z = 0
     tr.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
     tr.rotation_center.z = 0.2
-    texture = glutils.load_texture('stegosaurus.jpg')
+    texture = glutils.load_texture('fourrure mouton.jpg')
     o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, tr)
     viewer.add_object(o)
 
