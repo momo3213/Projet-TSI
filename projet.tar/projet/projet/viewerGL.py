@@ -125,7 +125,7 @@ class ViewerGL:
     
     def collision(self):
         compteur=0
-        for i in range(4,7):
+        for i in range(3,6):
             dist=self.objs[0].transformation.translation - self.objs[i].transformation.translation
             if np.linalg.norm(dist)<=2 and self.objs[i].visible== True :
                 self.objs[i].visible= False
