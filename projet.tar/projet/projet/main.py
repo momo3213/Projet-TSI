@@ -46,9 +46,9 @@ def main():
 
 #création des moutons
     m = Mesh.load_obj('mouton.obj')
-    vao = m.load_to_gpu()
     m.normalize()
-    m.apply_matrix(pyrr.matrix44.create_from_scale([0.2, 0.2, 0.2, 1]))
+    m.apply_matrix(pyrr.matrix44.create_from_scale([2, 2, 2, 1]))
+    vao = m.load_to_gpu()
     tr = Transformation3D()
     tr.translation.y = -np.amin(m.vertices, axis=0)[1]
     tr.translation.z = 0
