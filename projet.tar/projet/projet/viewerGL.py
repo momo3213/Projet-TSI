@@ -120,3 +120,8 @@ class ViewerGL:
             self.cam.transformation.rotation_euler[pyrr.euler.index().yaw] += np.pi
             self.cam.transformation.rotation_center = self.objs[0].transformation.translation + self.objs[0].transformation.rotation_center
             self.cam.transformation.translation = self.objs[0].transformation.translation + pyrr.Vector3([0, 1, 5])
+    
+    def collision(self):
+        float distX = self.position.x - mouton.position.x
+        float distY = self.position.y - mouton.position.y
+        float distZ = self.position.z - mouton.position.z
