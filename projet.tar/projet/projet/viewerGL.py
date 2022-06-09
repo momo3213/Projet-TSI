@@ -124,9 +124,13 @@ class ViewerGL:
             self.cam.transformation.translation = self.objs[0].transformation.translation + pyrr.Vector3([0, 1, 5])
     
     def collision(self):
-        compteur=0
+        self.compteur=0
         for i in range(3,17):
             dist=self.objs[0].transformation.translation - self.objs[i].transformation.translation
             if np.linalg.norm(dist)<=2 and self.objs[i].visible== True :
                 self.objs[i].visible= False
-                compteur=compteur+1
+                self.compteur=self.compteur+1
+
+    def finjeu(self):
+        if self.compteur==14:
+            print 
