@@ -40,7 +40,7 @@ def main():
 
     vao = Text.initalize_geometry()
     texture = glutils.load_texture('fontB.jpg')
-    o = Text('La ferme de moutons', np.array([-0.8, 0.3], np.float32), np.array([0.8, 0.8], np.float32), vao, 2, programGUI_id, texture)
+    o = Text('La ferme des moutons', np.array([-0.8, 0.3], np.float32), np.array([0.8, 0.8], np.float32), vao, 2, programGUI_id, texture)
     viewer.add_object(o)
 
 
