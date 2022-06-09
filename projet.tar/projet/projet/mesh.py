@@ -78,9 +78,11 @@ class Mesh():
         vni = []
         vti = []
         with open(filename) as f:
-            for line in f: 
+            for line in f:  
                 l = line.split()
                 if len(l)==0:
+                    continue
+                if len(line.strip())==0:
                     continue
                 if l[0] == 'v' :
                     v = np.array(l[1:], np.float32)

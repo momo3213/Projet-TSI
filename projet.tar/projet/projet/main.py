@@ -16,7 +16,7 @@ def main():
     program3d_id = glutils.create_program_from_file('shader.vert', 'shader.frag')
     programGUI_id = glutils.create_program_from_file('gui.vert', 'gui.frag')
 
-    m = Mesh.load_obj('stegosaurus.obj')
+    m = Mesh.load_obj('fermierdebout.obj')
     m.normalize()
     m.apply_matrix(pyrr.matrix44.create_from_scale([2, 2, 2, 1]))
     tr = Transformation3D()
@@ -46,9 +46,9 @@ def main():
 
 #création des moutons
     m = Mesh.load_obj('mouton.obj')
-    vao = m.load_to_gpu()
     m.normalize()
-    m.apply_matrix(pyrr.matrix44.create_from_scale([0.2, 0.2, 0.2, 1]))
+    m.apply_matrix(pyrr.matrix44.create_from_scale([1, 1, 1, 1]))
+    vao = m.load_to_gpu()
     tr = Transformation3D()
     tr.translation.y = -np.amin(m.vertices, axis=0)[1]
     tr.translation.z = 0
