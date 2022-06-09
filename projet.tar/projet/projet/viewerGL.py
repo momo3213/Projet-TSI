@@ -127,7 +127,7 @@ class ViewerGL:
             self.cam.transformation.translation = self.objs[0].transformation.translation + pyrr.Vector3([0, 1, 5])
     
     def collision(self):
-        for i in range(4,17):
+        for i in range(4,19):
             dist=self.objs[0].transformation.translation - self.objs[i].transformation.translation
             if np.linalg.norm(dist)<=2 and self.objs[i].visible== True :
                 self.objs[i].visible= False
