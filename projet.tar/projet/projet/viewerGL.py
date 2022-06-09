@@ -10,7 +10,7 @@ class ViewerGL:
     def __init__(self):
         # initialisation de la librairie GLFW
         glfw.init()
-        # paramétrage du context OpenGL
+        # paramétrage du context 
         glfw.window_hint(glfw.CONTEXT_VERSION_MAJOR, 3)
         glfw.window_hint(glfw.CONTEXT_VERSION_MINOR, 3)
         glfw.window_hint(glfw.OPENGL_FORWARD_COMPAT, GL.GL_TRUE)
