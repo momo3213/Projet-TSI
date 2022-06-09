@@ -69,7 +69,7 @@ def main():
 
 #ajout des autres moutons
     
-    for i in range(2,15):
+    for i in range(2,16):
         ti = Transformation3D()
         ti.translation.y = -np.amin(m.vertices, axis=0)[1]
         ti.translation.z = random.random()*20-10
