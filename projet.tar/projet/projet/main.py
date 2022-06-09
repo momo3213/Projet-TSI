@@ -68,32 +68,8 @@ def main():
     viewer.add_object(o)
 
 #ajout des autres moutons
-    t2 = Transformation3D()
-    t2.translation.y = -np.amin(m.vertices, axis=0)[1]
-    t2.translation.z = 3
-    t2.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
-    t2.translation.z = 10
-    o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, t2)
-    viewer.add_object(o)
-
-    t3 = Transformation3D()
-    t3.translation.y = -np.amin(m.vertices, axis=0)[1]
-    t3.translation.z = -5
-    t3.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
-    t3.translation.z = -10
-    o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, t3)
-    viewer.add_object(o)
-
-    t4 = Transformation3D()
-    t4.translation.y = -np.amin(m.vertices, axis=0)[1]
-    t4.translation.z = 0
-    t4.translation.x = -6
-    t4.rotation_euler = pyrr.euler.create(roll=90, pitch=0.0, yaw=0.0, dtype=None)
-    t4.translation.z = -10
-    o = Object3D(vao, m.get_nb_triangles(), program3d_id, texture, t4)
-    viewer.add_object(o)
     
-    for i in range(5,15):
+    for i in range(2,15):
         ti = Transformation3D()
         ti.translation.y = -np.amin(m.vertices, axis=0)[1]
         ti.translation.z = random.random()*20-10
