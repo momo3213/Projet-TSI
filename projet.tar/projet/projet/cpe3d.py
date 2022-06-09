@@ -111,4 +111,3 @@ class Text(Object):
         GL.glBufferData(GL.GL_ELEMENT_ARRAY_BUFFER,index,GL.GL_STATIC_DRAW)
         return vao
 
-#test

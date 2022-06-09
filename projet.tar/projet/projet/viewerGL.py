@@ -40,6 +40,7 @@ class ViewerGL:
             GL.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT)
 
             self.update_key()
+            self.collision()
 
             for obj in self.objs:
                 GL.glUseProgram(obj.program)
@@ -123,9 +124,9 @@ class ViewerGL:
             self.cam.transformation.translation = self.objs[0].transformation.translation + pyrr.Vector3([0, 1, 5])
     
     def collision(self):
-        dist=1
-        for i in range(1,3):
+        compteur=0
+        for i in range(4,7):
             dist=self.objs[0].transformation.translation - self.objs[i].transformation.translation
-            if np.linalg.norm(dist)<=1:
-                GL.releaseGLResource(self.objs[i])
-
+            if np.linalg.norm(dist)<=2 and self.objs[i].visible== True :
+                self.objs[i].visible= False
+                compteur=compteur+1
